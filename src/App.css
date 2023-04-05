@@ -16,21 +16,31 @@ body {
 }
 
 .page-container {
-  display: flex;
-  min-height: 100vh;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
   background-color: #2D2D2D;
 }
 
 /* sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 200px;
-  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: #4F4F4F;
+
+  min-height: 100%;
+  width: 100%;
+  align-items: center;
   padding-top: 3rem;
+
+}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  text-align: center;
 }
 
 .sidebar li {
@@ -39,10 +49,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.navlink {
-  text-decoration: none;
-  color: white;
-  text-align: center;
+.top-left {
+  position: fixed;
 }
 
 .bottom-left {
@@ -58,4 +66,46 @@ body {
   min-height: 100vh;
   text-align: center;
   padding-top: 2rem;
+}
+
+.text-input {
+  padding: 0.35rem 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.submit-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all linear 0.3s;
+  margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+  background-color: #4F4F4F;
+  color: white;
+  border: 1px solid white;
+}
+
+/* card-container */
+.card-ctn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6rem;
+  padding: 3rem;
+}
+
+.card {
+  background-color: chocolate;
+  width: 300px;
+  height: 380px;
+  text-align: center;
+  border: 1px solid chocolate;
+  border-radius: 5px;
+  box-shadow: chocolate 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(255, 85, 85)  10px -10px;
+  padding: 1rem;
+}
+
+.red-border {
+  border: 1px solid rgb(255, 85, 85) ;
 }
