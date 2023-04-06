@@ -16,19 +16,11 @@ const CreateCrewmate = () => {
         }
 
         const {data, error} = await supabase
-        .from('Crews')
-        .insert({ name: crew.name, speed: crew.speed, color: crew.color })
-        .select();
+            .from('Crews')
+            .insert({ name: crew.name, speed: crew.speed, color: crew.color })
 
-        if (error) {
-            // console.log(error)
-            setFormError('Please fill in all the fields correctly.')
-        }
-        if (data) {
-            // console.log(data)
-            setFormError(null)
-            navigate('/')
-        }
+        navigate('/gallery')
+
     }
 
     const handleChange = (event) => {

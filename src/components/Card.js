@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = ({crew}) => {
-
+const Card = ({ crew }) => {
   return (
     <div className='card'>
           <br />
@@ -17,13 +16,9 @@ const Card = ({crew}) => {
           <br />
           <h4 className="color">Color of Crewmate: {crew.color}</h4>
           <br />
-          
           <Link to={'/edit/'+ crew.id}>
-            <button type='button' className='submit-btn red-border'>
-              Edit Crewmate
-            </button>
+            <button type='button' className='submit-btn red-border'>Edit</button>
           </Link>
-          
     </div>
   )
 }

@@ -5,15 +5,42 @@ import { supabase } from '../client'
 const EditCrews = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [crew, setCrew] = useState({name: "", speed: 0, color: ""})
+    const [crew, setCrew] = useState({name: "", speed: 0, color: ""});
+    const [formError, setFormError] = useState(null);
+
+    const handleEdit = async(event) => {
+        event.preventDefault();
+
+        if (!crew.name || !crew.speed || !crew.color) {
+            setFormError('Please fill in all the fields correctly.')
+            return
+        }
+        await supabase
+            .from("Crews")
+            .update({name: crew.name, speed: crew.speed, color: crew.color})
+            .eq("id", id)
+
+        navigate('/gallery')
+    }
+
+    const handleDelete = async (event) => {
+        event.preventDefault();
+    
+        await supabase
+        .from('Crews')
+        .delete()
+        .eq('id', id); 
+    
+        navigate('/gallery')
+    }
 
     useEffect(() => {
         const fetchCrews = async() => {
             const { data, error } = await supabase
-            .from("Crews")
-            .select()
-            .eq("id", id)
-            .single()
+                .from("Crews")
+                .select()
+                .eq("id", id)
+                .single()
 
             if (error) {
                 navigate("/", {replace: true})
@@ -42,7 +69,7 @@ const EditCrews = () => {
 
   return (
     <div>
-    <form>
+    <form onSubmit={handleEdit}>
         <label htmlFor="name">Name</label> <br />
         <input type="text" id="name" name="name" value={crew.name} onChange={handleChange} className='text-input' /><br />
         <br/>
@@ -54,8 +81,9 @@ const EditCrews = () => {
         <label htmlFor="color">Color</label><br />
         <input type="text" id="color" name="color" value={crew.color} onChange={handleChange} className='text-input' /><br />
         <br/>
-        <input type="submit" value="Submit" className='submit-btn' />
-        {/* <button className="deleteButton" onClick={deletePost}>Delete</button> */}
+        <input type="submit" value="Submit" className='submit-btn' /> &nbsp;
+        <button type='button' className='submit-btn red-border' onClick={handleDelete}>Delete</button>
+        {formError && <p className="error">{formError}</p>}
     </form>
     </div>
   )
