@@ -9,22 +9,29 @@ import EditCrews from './pages/EditCrews';
 import { supabase } from './client'
 
 function App() {
-
-  const [crews, setCrews] = useState([]);
+  const [fetchError, setFetchError] = useState(null)
+  const [crews, setCrews] = useState(null);
 
   useEffect(() => {
     // READ all post from table
-    const fetchPosts = async () => {
-      const { data } = await supabase
+    const fetchCrews = async() => {
+      const { data, error } = await supabase
       .from("Crews")
       .select()
-      .order("created_at", { ascending: false })
+      .order("created_at", { ascending: true })
 
-      // set state of posts
-      setCrews(data)
+      if (error) {
+        setFetchError('Could not fetch the smoothies!')
+        setCrews(null);
+      }
+
+      if (data) {
+        setCrews(data);
+        setFetchError(null);
+      }
     }
 
-    fetchPosts();
+    fetchCrews();
   }, [])
 
   return (
@@ -32,7 +39,9 @@ function App() {
       <div>
         <Nav />
       </div>
+
       <div className='routes-container'>
+        {fetchError}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={ <CreateCrewmate /> } />

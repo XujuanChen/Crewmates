@@ -17,8 +17,8 @@ const CrewmateGallery = (props) => {
             {
                 crews && crews.length > 0 ?
                 crews.map((crew) => 
-                    <Card id={crew.id} name={crew.name} speed={crew.speed} color={crew.color}/>
-                ) : <h2>{'No Crewmates Yet 😞'}</h2>
+                    <Card id={crew.id} crew={crew} />
+                ) : <h2>{'No Crew Yet 😞'}</h2>
             }
         </div>
     </div>
