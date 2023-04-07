@@ -110,6 +110,25 @@ body {
   border: 1px solid rgb(255, 85, 85) ;
 }
 
-input {
-  width: 300px;
+
+
+.input-container {
+  max-width: 260px;
+  height: 100%;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+  border-radius: 5px;
+  z-index: 3;
+  backdrop-filter: blur(0.75rem);
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+}
+
+.radiobtn-container {
+  text-align: left;
 }
