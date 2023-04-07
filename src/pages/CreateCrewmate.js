@@ -18,7 +18,9 @@ const CreateCrewmate = () => {
         const {data, error} = await supabase
             .from('Crews')
             .insert({ name: crew.name, speed: crew.speed, color: crew.color })
+            .select()
 
+            alert("Success! You created a crewmate!")
         navigate('/gallery')
 
     }
@@ -39,22 +41,22 @@ const CreateCrewmate = () => {
         <h1>Create a New Crewmate</h1>
         <br />
         <div>
-            <img src="https://shimmering-stardust-c75334.netlify.app/assets/crewmates.43d07b24.png" width="30%" alt="img" />
+            <img src="https://shimmering-stardust-c75334.netlify.app/assets/crewmates.43d07b24.png" width="40%" alt="img" />
         </div>
         <br />
         <form onSubmit={createCrew}>
-        <label htmlFor="name">Name</label> <br />
+        <label htmlFor="name">Crewmate Name</label> <br />
         <input type="text" id="name" name="name" onChange={handleChange} className='text-input' /><br />
         <br/>
 
-        <label htmlFor="speed">Speed</label><br />
+        <label htmlFor="speed">Crewmate Speed</label><br />
         <input type="number" id="speed" name="speed" onChange={handleChange} className='text-input' /><br />
         <br/>
 
-        <label htmlFor="color">Color</label><br />
+        <label htmlFor="color">Crewmate Color</label><br />
         <input type="text" id="color" name="color" onChange={handleChange} className='text-input' /><br />
         <br/>
-        <input type="submit" value="Create" className='submit-btn' />
+        <button type="submit" className='submit-btn' > Create Crewmate </button>
     
         {formError && <p className="error">{formError}</p>}
     </form>

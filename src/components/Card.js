@@ -9,15 +9,16 @@ const Card = ({ crew }) => {
             <img src="https://cdn-icons-png.flaticon.com/512/7735/7735231.png" width="100px" style={{background:"chocolate"}} alt="et" />
           </Link>
           <br />
+          <h3>Crewmate information</h3>
           <br />
-          <h4 className="name">Name of Crewmate: {crew.name}</h4>
-          <br />
-          <h4 className="speed">Speed of Crewmate: {crew.speed} mph</h4>
-          <br />
-          <h4 className="color">Color of Crewmate: {crew.color}</h4>
+          <p className="name">Name: {crew.name}</p>
+
+          <p className="speed">Speed: {crew.speed} mph</p>
+
+          <p className="color">Color: {crew.color}</p>
           <br />
           <Link to={'/edit/'+ crew.id}>
-            <button type='button' className='submit-btn red-border'>Edit</button>
+            <button type='button' className='submit-btn red-border'>Edit Crewmate</button>
           </Link>
     </div>
   )
