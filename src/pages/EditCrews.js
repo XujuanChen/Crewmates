@@ -143,7 +143,7 @@ const EditCrews = () => {
         </div>
 
         <button type='button' className='submit-btn red-border' onClick={handleEdit}> Update </button>
-        &nbsp;
+        &nbsp;&nbsp;
         <button type='button' className='submit-btn red-border' onClick={handleDelete}> Delete </button>
         {formError && <p className="error">{formError}</p>}
     </form>

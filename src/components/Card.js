@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 
 const Card = ({ crew }) => {
   return (
     <div className='card'>
           <br />
-          <Link to={'/edit/'+ crew.id}>
+          <Link to={'/details/' + crew.id }>
             <img src="https://cdn-icons-png.flaticon.com/512/7735/7735231.png" width="100px" style={{background:"chocolate"}} alt="et" />
           </Link>
           <br />

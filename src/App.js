@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import CreateCrewmate from './pages/CreateCrewmate';
 import CrewmateGallery from './pages/CrewmateGallery';
 import EditCrews from './pages/EditCrews';
+import ShowCrewmate from './pages/ShowCrewmate';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/create" element={ <CreateCrewmate /> } />
           <Route path="/gallery" element={ <CrewmateGallery /> } />
           <Route path="/edit/:id" element={ <EditCrews /> } />
+          <Route path="/details/:id" element={ <ShowCrewmate/> } />
         </Routes>
       </div>
     </div>
